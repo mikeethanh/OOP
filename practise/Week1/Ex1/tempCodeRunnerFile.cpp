@@ -1,0 +1,1 @@
+    void addStaff(staff newStaff) {
