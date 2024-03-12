@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+using namespace std;
+
 
 class Diem {
 private:
@@ -10,21 +12,21 @@ private:
 public:
     Diem() : hoanhDo(0.0), tungDo(0.0) {}
 
-    friend std::istream& operator>>(std::istream& is, Diem& diem) {
-        std::cout << "Nhap hoanh do: ";
+    friend istream& operator>>(istream& is, Diem& diem) {
+        cout << "Nhap hoanh do: ";
         is >> diem.hoanhDo;
-        std::cout << "Nhap tung do: ";
+        cout << "Nhap tung do: ";
         is >> diem.tungDo;
         return is;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const Diem& diem) {
+    friend ostream& operator<<(ostream& os, const Diem& diem) {
         os << "(" << diem.hoanhDo << ", " << diem.tungDo << ")";
         return os;
     }
 
     double tinhKhoangCachDenGoc() const {
-        return std::sqrt(hoanhDo * hoanhDo + tungDo * tungDo);
+        return sqrt(hoanhDo * hoanhDo + tungDo * tungDo);
     }
 
     double getHoanhDo() const {
@@ -38,16 +40,16 @@ public:
 
 int main() {
     int n;
-    std::cout << "Nhap so luong diem: ";
-    std::cin >> n;
+    cout << "Nhap so luong diem: ";
+    cin >> n;
 
-    std::vector<Diem> danhSachDiem;
+    vector<Diem> danhSachDiem;
 
     // Nhập tọa độ n điểm trên mặt phẳng
     for (int i = 0; i < n; ++i) {
         Diem diem;
-        std::cout << "Nhap toa do cho diem thu " << i + 1 << ":\n";
-        std::cin >> diem;
+        cout << "Nhap toa do cho diem thu " << i + 1 << ":\n";
+        cin >> diem;
         danhSachDiem.push_back(diem);
     }
 
@@ -57,7 +59,7 @@ int main() {
         tongKhoangCach += diem.tinhKhoangCachDenGoc();
     }
 
-    std::cout << "Tong khoang cach tu tat ca cac diem den goc toa do: " << tongKhoangCach << std::endl;
+    cout << "Tong khoang cach tu tat ca cac diem den goc toa do: " << tongKhoangCach << endl;
 
     // Tìm một điểm ở gần gốc tọa độ nhất
     double khoangCachNhoNhat = INT16_MAX;
@@ -71,7 +73,7 @@ int main() {
         }
     }
 
-    std::cout << "Diem gan nhat den goc toa do: " << diemGanNhat << std::endl;
+    cout << "Diem gan nhat den goc toa do: " << diemGanNhat << endl;
 
     return 0;
 }

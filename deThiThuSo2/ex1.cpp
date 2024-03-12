@@ -13,7 +13,7 @@ public:
     DaThuc() : bac(0) {}
 
     // Hàm tạo có tham số
-    DaThuc(int b, const vector<float>& heSo) : bac(b), hs(heSo) {}
+    DaThuc(int b, vector<float>& heSo) : bac(b), hs(heSo) {}
 
     // Hàm hủy
     ~DaThuc() {}
@@ -33,7 +33,7 @@ public:
     }
 
     // Hàm in ra các hệ số của đa thức
-    void inDaThuc() const {
+    void inDaThuc() {
         cout << "Da thuc: ";
         for (int i = 0 ; i < hs.size(); ++i) {
             cout << "he so thu" << i +1 <<   ": "  <<hs[i];
@@ -42,7 +42,7 @@ public:
     }
 
     // Hàm tính giá trị của đa thức tại x
-    float tinhGiaTri(float x) const {
+    float tinhGiaTri(float x) {
         float giaTri = 0.0f;
         for (int i = 0; i <= bac; ++i) {
             giaTri += hs[i] * pow(x, i);
